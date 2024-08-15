@@ -1,0 +1,96 @@
+# Vanguard Service Control Script
+
+This batch script allows you to start, stop, disable, and set the `vgc` service to manual on a Windows system. It requires administrator privileges to execute certain commands, such as stopping, disabling, or changing the service's startup type.
+
+## Prerequisites
+
+- **Windows Operating System**: The script is designed to work on Windows.
+- **Administrator Privileges**: The script must be run with administrator privileges to perform actions on the `vgc` service.
+
+## Usage
+
+### Running the Script
+
+1. **Running with Administrator Privileges**:
+
+   - **Option 1**: Right-click on the script (`vanguard.bat`) and select **Run as administrator**.
+   - **Option 2**: Create a shortcut to the script, then right-click on the shortcut, go to **Properties**, click on **Advanced**, and check the **Run as administrator** box.
+
+2. **Command-Line Arguments**:
+
+   - The script accepts the following command-line arguments:
+     - `start` - Starts the `vgc` service.
+     - `stop` - Stops the `vgc` service.
+     - `disable` - Disables the `vgc` service, preventing it from being started manually or automatically.
+     - `enable` - Sets the `vgc` service to manual start, allowing it to be started manually but not automatically.
+
+   Example usage:
+
+   ```
+   vanguard.bat start
+   vanguard.bat stop
+   vanguard.bat disable
+   vanguard.bat enable
+   ```
+
+### Script Behavior
+
+**Argument Parsing**: The script checks the provided argument and executes the corresponding action:
+
+- `start` - The script attempts to start the `vgc` service.
+- `stop` - The script attempts to stop the `vgc` service.
+- `disable` - The script disables the `vgc` service.
+- `enable` - The script sets the `vgc` service to manual start.
+
+**Error Handling**:
+
+- If the service fails to start, stop, disable, or set to manual, the script will output an appropriate error message.
+- If an invalid argument is provided, the script will display usage instructions.
+
+### Sample Output
+
+- **Start the Service**:
+
+```
+Command-line argument: start
+Start argument detected.
+Attempting to start vgc...
+vgc started successfully.
+```
+
+- **Stop the Service**:
+
+```
+Command-line argument: stop
+Stop argument detected.
+Attempting to stop vgc...
+vgc stopped successfully.
+```
+
+- **Disable the Service**:
+
+```
+Command-line argument: disable
+Disable argument detected.
+Attempting to disable vgc...
+vgc disabled successfully.
+```
+
+- **Set the Service to Manual (Enable)**:
+
+```
+Command-line argument: manual
+Manual argument detected.
+Attempting to set vgc to manual...
+vgc set to manual successfully.
+```
+
+## Troubleshooting
+
+**Access Denied Error**:
+
+- If you encounter an "Access Denied" error when attempting to stop, disable, or modify the service, ensure that the script is run with administrator privileges.
+
+**Script Fails to Run as Administrator**:
+
+- Ensure that you right-click the script and select **Run as administrator**, or create a shortcut with the **Run as administrator** option enabled.
